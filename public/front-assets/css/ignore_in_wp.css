@@ -1,0 +1,237 @@
+/*
+Theme Name: Goru
+Theme URI: http://tf.wpcashcow.com/goru/
+Author: wpsmasher
+Author URI: http://wpcashcow.com/
+Description: Goru - Ecommerce HTML5 Responsive Template
+Version: 1.0
+License:
+License URI:
+*/
+.categorie-section{
+	position: relative;
+	padding: 120px 0 90px;
+}
+.cate-shage{
+	position: absolute;
+	right: 0;
+	bottom: 17%;
+	z-index: -1;
+}
+.service-section{
+	position: relative;
+	overflow: hidden;
+	background: #f9fbff;
+	padding: 120px 0 90px;
+}
+.service-section:before{
+	position: absolute;
+	left: 10%;
+	top: -30px;
+	content: '';
+	background: #4285ff;
+	opacity: .07;
+	width: 87px;
+	height: 87px;
+	border-radius: 50%;
+	animation: halfBounce 4s infinite;
+    animation-delay: 1s
+}
+.service-section:after{
+	position: absolute;
+	right: 13%;
+	bottom: -30px;
+	content: '';
+	background: #4285ff;
+	opacity: .07;
+	width: 87px;
+	height: 87px;
+	border-radius: 50%;
+	animation: halfBounce 3s infinite;
+    animation-delay: 1s
+}
+.trending-section{
+	position: relative;
+	padding: 120px 0 110px;
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+.popular-section{
+	background: #f9fbff;
+	overflow: hidden;
+	position: relative;
+	padding: 120px 0 85px;
+}
+.coupone-discount-sec{
+	position: relative;
+	padding: 120px 0;
+}
+.couple-shape{
+	position: absolute;
+	left: 0;
+	top: 24%;
+	z-index: -1;
+}
+.news-section{
+	position: relative;
+	overflow: hidden;
+	background: #f9fbff;
+	padding: 120px 0;
+}
+.news-section .shape-round span:nth-child(1){
+	left: 10%;
+}
+.news-section .shape-round span:nth-child(2){
+	top: 7%;
+}
+.news-section .shape-round span:nth-child(3){
+	top: 68%;
+}
+.news-section .shape-round span:nth-child(4){
+	top: auto;
+	bottom: -45px;
+	left: -45px;
+}
+.m-top-45{
+	margin-top: 45px;
+}
+.client-section{
+	position: relative;
+	padding: 115px 0;
+}
+.mailchimp-section{
+	position: relative;
+	background: #f9fbff;
+	border-bottom: 1px solid #ecf3ff;
+	padding: 120px 0;
+}
+.mailchimp-section .sec-title{
+	margin-bottom: 64px;
+}
+.mailchimp-shape{
+	position: absolute;
+	top: 26%;
+	right: 13%;
+}
+body.home-02{
+    padding: 0 130px;
+}
+.categorie-section-2{
+    position: relative;
+    padding: 115px 0 80px;
+}
+.categorie-section-2 .sec-heading{
+    font-size: 40px;
+    line-height: 50px;
+    color: #efefef;
+    left: 1.2%;
+    letter-spacing: .40px;
+    inline-size: inherit;
+    text-align: left;
+}
+.categorie-section-2 .sec-heading span{
+	display: block;
+}
+.coupone-discount-sec-2{
+    position: relative;
+    background: #f6f6f6;
+    padding: 80px 0 0;
+}
+.coupone-discount-sec-2 .dis-product-detail .product-price{
+	color: #f36523;
+}
+.coupone-discount-sec-2 .dis-product-detail .goru-btn{
+	background: #f36523;
+    -webkit-box-shadow: 0px 0px 30px 10px rgba(150, 176, 203, 0.09);
+    -moz-box-shadow: 0px 0px 30px 10px rgba(150, 176, 203, 0.09);
+    box-shadow: 0px 0px 30px 10px rgba(150, 176, 203, 0.09);
+}
+.coupone-discount-sec-2 .dis-product-detail{
+	padding-top: 104px;
+}
+.popular-section-2{
+	position: relative;
+	padding: 120px 15px 77px;
+}
+.popular-section-2 .sec-title,
+.popular-section-2 .product-tab-title{
+	padding-left: 30px;
+}
+.popular-section-2 .sp-details .product-price{
+	color: #8e8d8d;
+}
+.popular-section-2 .sp-details-hover .sp-cart{
+	color: #f36523;
+}
+.popular-section-2 .sp-details-hover .sp-cart span:after{
+	background: #f36523;
+}
+.popular-section-2 .sp-details-hover .sp-cart:hover{
+	color: #000;
+}
+.popular-section-2 .sp-details-hover .sp-wishlist{
+	background: #f36523;
+}
+.popular-section-2 .sp-details-hover .sp-wishlist:hover{
+	background: #000;
+}
+.client-section-2{
+	position: relative;
+	padding: 0 0 100px;
+}
+.bg-f5f5f5{
+	background: #f5f5f5;
+}
+.bg-f5f5f5 .mailchimp-form button, 
+.bg-f5f5f5 .mailchimp-form input[type="submit"]{
+	background: #f36523;
+	-webkit-box-shadow: 0px 30px 60px 0 rgba(150, 176, 203, 0.2);
+    -moz-box-shadow: 0px 30px 60px 0 rgba(150, 176, 203, 0.2);
+    box-shadow: 0px 30px 60px 0 rgba(150, 176, 203, 0.2);
+}
+.c-2-color .menu-link li a:hover{
+	color: #f36523;
+}
+.m-top-113{
+	margin-top: 113px;
+}
+.service-ab:after,
+.service-ab:before{
+	display: none;
+}
+.service-ab .single-service i{
+	color: #c1c1c1;
+}
+.service-ab .single-service p{
+	font-weight: 600;
+	color: #8e8d8d;
+}
+.contact-section .sec-title{
+    font-size: 36px;
+    line-height: 46px;
+    margin-bottom: 20px;
+}
+.contact-section .sec-desc{
+	font-size: 15px;
+	line-height: 25px;
+	color: #898989;
+	margin-bottom: 30px;
+}
+.mar-top-bottom{
+	margin-top: 120px;
+	margin-bottom: 110px;
+}
+.login-section .sec-title{
+	font-size: 24px;
+	line-height: 28px;
+	margin-bottom: 6px;
+}
+.login-section .sec-desc{
+	font-size: 15px;
+	line-height: 26px;
+	color: #7d7d7d;
+	font-weight: 400;
+	margin-bottom: 32px;
+}
+
+

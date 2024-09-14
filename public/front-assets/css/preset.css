@@ -1,0 +1,285 @@
+/*
+Theme Name: Goru
+Theme URI: http://tf.wpcashcow.com/goru/
+Author: wpsmasher
+Author URI: http://wpcashcow.com/
+Description: Goru - Ecommerce HTML5 Responsive Template
+Version: 1.0
+License:
+License URI:
+*/
+
+/*------------------------------------------------------
+/  All Preset Css
+/------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap');
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    color: #666666;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0 0 15px;
+    line-height: 1.2;
+}
+a{
+    color: #000;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+a:hover{
+    color: #3160d8;
+    text-decoration: none;
+}
+a:focus{
+    outline: 0;
+    text-shadow: none;
+    box-shadow: none;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+    -webkit-appearance: number-input;
+    -moz-appearance: number-input;
+}
+.goru-btn{
+    display: inline-block;
+    background: transparent;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid #000000;
+    border-radius: 0;
+    height: 60px;
+    line-height: .8;
+    z-index: 2;
+    padding: 23px 36px;
+    overflow: hidden;
+    position: relative;
+    
+   -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.goru-btn:after{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    height: 100%;
+    width: 0%;
+    content: '';
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    background: #3160d8;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.goru-btn:hover:after{
+    visibility: visible;
+    opacity: 1;
+    width: 100%
+}
+.goru-btn:hover{
+    color: #fff;
+    border-color: #3160d8;
+}
+button:focus,
+button:hover{
+    outline: none;
+    border: none;
+}
+.sec-title{
+    font-size: 36px;
+    line-height: 36px;
+    margin: 0 0 18px;
+}
+.sec-desc{
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 600;
+    color: #8e8d8d;
+    margin: 0 0 55px;
+}
+.sec-heading{
+    font-size: 24px;
+    line-height: 24px;
+    color: #000000;
+    font-weight: 700;
+    height: 100%;
+    display: block;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    inline-size: fit-content;
+}
+.sec-heading span{
+    font-weight: 300;
+    display: inline;
+}
+.rotate-rl {
+    writing-mode: tb-rl;
+    position: absolute;
+    left: 5%;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+}
+.rotate-tb {
+    writing-mode: tb;
+    position: absolute;
+    right: 5%;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+}
+.scroll-down{
+    font-size: 18px;
+    color: #000000;
+    line-height: 26px;
+    font-weight: 700;
+    display: inline-block;
+    inline-size: fit-content;
+    text-transform: uppercase;
+    writing-mode: tb-rl;
+    position: absolute;
+    left: 5%;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%) rotate(180deg);
+}
+.scroll-down img{
+    width: 61px;
+    height: 89px;
+    margin-top: 70px;
+    margin-right: -15px;
+}
+.scroll-down a{
+    display: inline-block;
+    position: relative;
+}
+.scroll-down a:after{
+    height: 120px;
+    width: 3px;
+    background: #000;
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: -140px;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.scroll-down a:hover:after {
+    background: #3160d8;
+}
+.noPadding{
+    padding: 0;
+}
+.noPaddingLeft{
+    padding-left: 0;
+}
+.noPaddingRight{
+    padding-right: 0;
+}
+.noPaddingTop{
+    padding-top: 0;
+}
+/*---- Read More ----*/
+.read-more{
+    position: relative;
+    display: inline-block;
+}
+.read-more:after{
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    background: #3160d8;
+    content: '';
+    transition: width .6s cubic-bezier(.25,.8,.25,1) 0s;
+}
+.read-more:hover:after{
+    width: 0%;
+    left: auto;
+    right: 0;
+}
+/*---- Shpage Round ----*/
+.shape-round span{
+    display: block;
+    width: 87px;
+    height: 87px;
+    background: #ecf3ff;
+    border-radius: 50%;
+    animation: halfBounce 2s infinite;
+    animation-delay: .1s;
+    position: absolute;
+    left: 15%;
+    top: -45px;
+}
+.shape-round span:nth-child(2){
+    left: auto;
+    right: -45px;
+    top: 13%;
+}
+.shape-round span:nth-child(3){
+    left: auto;
+    right: 10%;
+    top: 48%;
+}
+.shape-round span:nth-child(4){
+    left: -40px;
+    top: auto;
+    bottom: 25%;
+}
+.shape-round span:nth-child(5){
+    left: auto;
+    right: 25%;
+    top: auto;
+    bottom: -50px;
+}
+@keyframes halfBounce {
+    0%,
+    100% {
+        transform: scale(.5)
+    }
+    50% {
+        transform: scale(1)
+    }
+}
+@-webkit-keyframes rotated {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
