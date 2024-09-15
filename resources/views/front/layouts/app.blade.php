@@ -98,8 +98,8 @@
                 <a href="javascript:void(0);" class="search-closer">x</a><!-- Close Popup Btn -->
                 <div class="middle-search">
                     <div class="popup-search-form"><!-- Search Form Start -->
-                        <form method="get" action="#">
-                            <input type="search" name="s" id="s" placeholder="Search...">
+                        <form method="get" action="{{route('front.shop')}}">
+                            <input value="{{ Request::get('search')}}" type="search" name="search" id="search" placeholder="Search...">
                             <button type="submit"><i class="twi-search"></i></button>
                         </form><!-- Search Form End -->
                     </div>

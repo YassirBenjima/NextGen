@@ -334,6 +334,14 @@ class CartController extends Controller
                 $orderItem->total = $item->price * $item->qty;
                 // Enregistre l'élément de commande dans la base de données.
                 $orderItem->save();
+                // Update Product Stock
+                $productData = Product::find($item->id);
+                if ($productData->track_qty == 'Yes') {
+                    $currentQty = $productData->qty;
+                    $updatedQty = $currentQty - $item->qty;
+                    $productData->qty = $updatedQty;
+                    $productData->save();
+                }
             }
 
             orderEmail(orderId: $order->id);

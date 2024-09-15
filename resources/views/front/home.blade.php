@@ -180,7 +180,15 @@
                                             <p>
                                                 <del>{{ $product->compare_price}} Dh</del>
                                             </p>
-                                            <a class="tr-atc" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">Add To Cart</a>
+                                            @if($product->track_qty == "Yes")
+                                                @if ($product->qty > 0)
+                                                    <a class="tr-atc" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">Add To Cart</a>
+                                                @else
+                                                    <a class="tr-atc" href="javascript:void(0);">Out of Stock</a>
+                                                @endif
+                                            @else   
+                                                <a class="tr-atc" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">Add To Cart</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -251,10 +259,24 @@
                                                         </span>
                                                     </div>
                                                     <div class="sp-details-hover">
-                                                        <a class="sp-cart" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">
-                                                            <i class="twi-cart-plus"></i><span>Add to cart</span>
-                                                        </a>
+                                                        @if($product->track_qty == "Yes")
+                                                            @if ($product->qty > 0)
+                                                                <a class="sp-cart" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">
+                                                                    <i class="twi-cart-plus"></i><span>Add to cart</span>
+                                                                </a>                                                           
+                                                            @else
+                                                                <a class="sp-cart" href="javascript:void(0);">
+                                                                    <i class="twi-cart-plus"></i><span>Out Of Stock</span>
+                                                                </a>  
+                                                            @endif
+                                                        @else   
+                                                            <a class="sp-cart" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">
+                                                                <i class="twi-cart-plus"></i><span>Add to cart</span>
+                                                            </a>                                                        
+                                                        @endif
                                                     </div>
+
+                                                    
                                                 </div>
                                             </div>
                                         </div>

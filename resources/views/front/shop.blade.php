@@ -93,9 +93,15 @@
                                             <a href="{{ route('front.product', $product->slug) }}">
                                                 <img src="{{ asset('uploads/product/small/' . $productImage->image)}}" alt="" class="">
                                             </a>
-                                            <div class="pro-badge">
-                                                <p class="sale">Sale</p>
-                                            </div>
+                                            @if ($product->qty > 0)
+                                                <div class="pro-badge">
+                                                    <p class="sale">Sale</p>
+                                                </div>
+                                            @else
+                                                <div class="pro-badge">
+                                                    <p class="out-of-stock">out of stock</p>
+                                                </div>
+                                            @endif     
                                         </div>
                                         <div class="sp-details">
                                             <h4>{{ $product->title }}</h4>
@@ -106,7 +112,21 @@
                                                 </span>         
                                             </div>
                                             <div class="sp-details-hover">
-                                                <a class="sp-cart" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                                                @if($product->track_qty == "Yes")
+                                                @if ($product->qty > 0)
+                                                        <a class="sp-cart" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">
+                                                            <i class="twi-cart-plus"></i><span>Add to cart</span>
+                                                        </a>                                                           
+                                                    @else
+                                                        <a class="sp-cart" href="javascript:void(0);">
+                                                            <i class="twi-cart-plus"></i><span>Out Of Stock</span>
+                                                        </a>  
+                                                    @endif
+                                                @else   
+                                                    <a class="sp-cart" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">
+                                                        <i class="twi-cart-plus"></i><span>Add to cart</span>
+                                                    </a>                                                        
+                                                @endif                                           
                                             </div>
                                         </div>
                                     </div>
@@ -161,6 +181,13 @@
         // Filtrage par tri
         url += '&sort=' + $('#sort').val();
         // Redirection vers la nouvelle URL avec les filtres appliqués
+
+        var keyword = $("#search").val();
+        if(keyword.length > 0){
+            url += '&search=' + keyword;
+
+        }
+
         window.location.href = url;
 };
 </script>

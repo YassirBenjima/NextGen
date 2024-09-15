@@ -49,6 +49,12 @@ class ShopController extends Controller
             $products = $products->whereIn('brand_id', $brandsArray);
         }
 
+        // Filtrage par search 
+        // Search Filter
+        if (!empty($request->get('search'))) {
+            $products = $products->where('title', 'like', '%' . $request->get('search') . '%');
+        }
+
         // Tri des produits selon le paramètre de tri spécifié dans la requête
         if ($request->get('sort') != '') {
             if ($request->get('sort') == 'latest') {

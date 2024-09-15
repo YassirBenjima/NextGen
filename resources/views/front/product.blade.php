@@ -71,7 +71,15 @@
                         <p>{{ html_entity_decode(strip_tags($product->short_description)) }}</p>
                     </div>
                     <div class="product-cart-qty">
-                        <a href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');" class="add-to-cart-btn">Add To Cart</a>
+                        @if($product->track_qty == "Yes")
+                            @if ($product->qty > 0)
+                                <a href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');" class="add-to-cart-btn">Add To Cart</a>
+                            @else
+                                <a href="javascript:void(0);" class="add-to-cart-btn">Out Of Stock</a>
+                            @endif
+                        @else   
+                            <a href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');" class="add-to-cart-btn">Add To Cart</a>
+                        @endif
                     </div>
                     <div class="pro-socila">
                         <a href="#"><i class="twi-facebook"></i></a>
@@ -133,9 +141,21 @@
                                         </span>
                                     </div>
                                     <div class="sp-details-hover">
-                                        <a class="sp-cart" href="javascript:void(0);" onclick="addToCart('{{ $relProduct->id }}');">
-                                            <i class="twi-cart-plus"></i><span>Add to cart</span>
-                                        </a>
+                                        @if($product->track_qty == "Yes")
+                                            @if ($product->qty > 0)
+                                                <a class="sp-cart" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">
+                                                    <i class="twi-cart-plus"></i><span>Add to cart</span>
+                                                </a>                                                           
+                                            @else
+                                                <a class="sp-cart" href="javascript:void(0);">
+                                                    <i class="twi-cart-plus"></i><span>Out Of Stock</span>
+                                                </a>  
+                                            @endif
+                                        @else   
+                                            <a class="sp-cart" href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');">
+                                                <i class="twi-cart-plus"></i><span>Add to cart</span>
+                                            </a>                                                        
+                                        @endif
                                     </div>
                                 </div>
                             </div>
