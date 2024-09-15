@@ -62,9 +62,11 @@
                                         </td>
                                         <td class="product-quantity clearfix">
                                             @if ($order->status == 'pending')
-                                              <span class="badge btn-danger bg-danger">Pending</span>
+                                              <span class="badge btn-danger bg-warning">Pending</span>
                                             @elseif ($order->status == 'shipped')
                                               <span class="badge btn-info bg-info">Shipped</span>
+                                            @elseif ($order->status == 'cancelled')
+                                              <span class="badge btn-info bg-danger">Cancelled</span>
                                             @else
                                               <span class="badge btn-success bg-success">Delivered</span>
                                             @endif

@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-<title>NextGen | Coupons List</title>
+<title>NextGen | Orders List</title>
 @section('content')
 <!--begin::Main-->
 <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
@@ -12,7 +12,7 @@
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
-                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Coupons Management</h1>
+                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Orders Management</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -27,18 +27,16 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Coupons</li>
+                        <li class="breadcrumb-item text-muted">Orders</li>
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
                 <!--begin::Actions-->
-                <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <!--begin::success button-->
+                {{-- <div class="d-flex align-items-center gap-2 gap-lg-3">
                     <a href="{{ route('coupons.create')}}" class="btn btn-sm fw-bold btn-success">Create Coupons</a>
-                    <!--end::success button-->
-                </div>
+                </div> --}}
                 <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
@@ -56,7 +54,7 @@
                         <div class="card-header align-items-center py-5 gap-2 gap-md-5">
                             <!--begin::Card title-->
                             <div class="card-title">
-                                <a href="{{ route('coupons.index') }}" class="btn btn-primary btn-md">Reset</a>
+                                <a href="{{ route('orders.index') }}" class="btn btn-primary btn-md">Reset</a>
                                 <!--begin::Search-->
                                 <div class="d-flex align-items-center position-relative my-1">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
@@ -93,12 +91,14 @@
                             <thead>
                                 <!--begin::Table row-->
                                 <tr class="text-center text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-100px">ID</th>
-                                    <th class="min-w-100px">Code</th>
-                                    <th class="min-w-100px">Name</th>
-                                    <th class="min-w-100px">Discount</th>
-                                    <th class="min-w-100px">Start Date</th>
-                                    <th class="min-w-100px">End Date</th>
+                                    <th class="min-w-100px">Order#</th>
+                                    <th class="min-w-100px">Customer</th>
+                                    <th class="min-w-100px">Email</th>
+                                    <th class="min-w-100px">Phone</th>
+                                    {{-- <th class="min-w-100px">Start Date</th> --}}
+                                    {{-- <th class="min-w-100px">End Date</th> --}}
+                                    <th class="min-w-100px">Amount</th>
+                                    <th class="min-w-100px">Date Purchased</th>
                                     <th class="min-w-100px">Status</th>
                                     <th class="min-w-75px">Action</th>
                                 </tr>
@@ -107,64 +107,59 @@
                             <!--end::Table head-->
                             <!--begin::Table body-->
                             <tbody class="fw-semibold text-gray-600 text-center">
-                                @if ($discountCoupons->isNotEmpty())
-                                @foreach ( $discountCoupons as $discountCoupon )
+                                @if ($orders->isNotEmpty())
+                                @foreach ( $orders as $order )
                                 <!--begin::Table row-->
                                 <tr>
                                     <!--begin::Customer name=-->
                                     <td class="text-dark text-hover-danger">
-                                        {{ $discountCoupon->id }}
+                                        <a href="{{route('orders.detail' ,[$order->id])}}">
+                                            {{ $order->id }}
+                                        </a>
                                     </td>
                                     <!--end::Customer name=-->
                                     <!--begin::Email=-->
                                     <td class="text-dark text-hover-danger">
-                                        {{ $discountCoupon->code }}
+                                        {{ $order->name }}
                                     </td>
                                     <!--end::Email=-->
                                     <!--begin::Status=-->
                                     <td class="text-dark text-hover-danger">
-                                        {{ $discountCoupon->name }}
+                                        {{ $order->email }}
                                     </td>
                                     <!--begin::Status=-->
-                                    <!--begin::Status=-->
+                                    <!--begin::phone=-->
                                      <td class="text-dark text-hover-danger">
-                                        @if($discountCoupon->type == 'percent')
-                                        {{ $discountCoupon->discount_amount }}%
-                                        @else
-                                        ${{ $discountCoupon->discount_amount }}
-                                        @endif
+                                        {{ $order->mobile }}
                                     </td>
-                                    <!--begin::Status=-->
-                                     <!--begin::Status=-->
-                                     <td class="text-dark text-hover-danger">
-                                        {{(!empty($discountCoupon->starts_at)) ? \Carbon\Carbon::parse($discountCoupon->starts_at)->format('Y/m/d H:i:s') : ''}}
+                                    <!--begin::phone=-->
+                                    <!--begin::phone=-->
+                                    <td class="text-dark text-hover-danger">
+                                        {{ number_format($order->grand_total , 0) }} MAD
                                     </td>
-                                    <!--begin::Status=-->
-                                     <!--begin::Status=-->
-                                     <td class="text-dark text-hover-danger">
-                                        {{(!empty($discountCoupon->expires_at)) ? \Carbon\Carbon::parse($discountCoupon->expires_at)->format('Y/m/d H:i:s') : ''}}
+                                    <!--begin::phone=-->
+                                    <!--begin::phone=-->
+                                    <td class="text-dark text-hover-danger">
+                                        {{ \Carbon\Carbon::parse($order->created_at)->format('d M,Y') }}
                                     </td>
-                                    <!--begin::Status=-->
+                                    <!--begin::phone=-->
                                     <!--begin::Status=-->
                                     <td>
-                                        @if($discountCoupon->status == 1)
-                                        <div class="badge badge-light-success">Active</div>
+                                        @if($order->status == "pending")
+                                            <div class="badge badge-light-danger">Pending</div>
+                                        @elseif ($order->status == "shipped")
+                                            <div class="badge badge-light-info">Shipped</div>
                                         @else
-                                        <div class="badge badge-light-danger">Block</div>
+                                            <div class="badge badge-light-success">Delivered</div>
                                         @endif
                                     </td>
                                     <!--begin::Status=-->
                                     <!--begin::actions=-->
                                     <td class="text-dark">
                                         <!-- Modify Button -->
-                                        <a href="{{route('coupons.edit',$discountCoupon->id)}}" class="btn btn-default btn-sm">
+                                        <a href="{{route('orders.detail' , [$order->id])}}" class="btn btn-default btn-sm">
                                             <i class="bi bi-pencil text-primary"></i> 
                                         </a>
-                                        <!-- Delete Button -->
-                                        <a href="#" onclick="deleteCoupon('{{$discountCoupon->id}}')" class="btn btn-default btn-sm">
-                                            <i class="bi bi-trash text-danger"></i>
-                                        </a>
-
                                     </td>
                                     <!--end::actions=-->
                                 </tr>
@@ -182,7 +177,7 @@
                     </div>
                     <!--end::Card body-->
                     <div class="card-footer clearfix">
-                        {{ $discountCoupons->links() }}
+                        {{ $orders->links() }}
                     </div>
                 </div>
                 <!--end::Products-->
@@ -222,26 +217,6 @@
     @endsection
     @section('customJs')
     <script>
-    function deleteCoupon(id) {
-        var url = '{{ route("coupons.delete","ID")}}';
-        var newUrl = url.replace("ID", id);
-        if (confirm("Are you sure you want to delete")) {
-            $.ajax({
-                url: newUrl,
-                type: 'delete',
-                data: {},
-                dataType: 'json',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(response) {
-                    if (response["status"]) {
-                        window.location.href = "{{ route('coupons.index')}}";
-                    }
-                }
-            });
-        }
-    }
         setTimeout(function() {
             var successMessage = document.getElementById('successMessage');
             if (successMessage) {

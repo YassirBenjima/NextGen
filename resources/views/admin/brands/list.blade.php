@@ -114,17 +114,17 @@
                                 <!--begin::Table row-->
                                 <tr>
                                     <!--begin::Customer name=-->
-                                    <td class="text-dark text-hover-success">
+                                    <td class="text-dark text-hover-danger">
                                         {{ $brand->id }}
                                     </td>
                                     <!--end::Customer name=-->
                                     <!--begin::Email=-->
-                                    <td class="text-dark text-hover-success">
+                                    <td class="text-dark text-hover-danger">
                                         {{ $brand->name }}
                                     </td>
                                     <!--end::Email=-->
                                     <!--begin::Status=-->
-                                    <td class="text-dark text-hover-success">
+                                    <td class="text-dark text-hover-danger">
                                         {{ $brand->slug }}
                                     </td>
                                     <!--begin::Status=-->
@@ -155,7 +155,7 @@
                                 @endforeach
                                 @else
                                 <tr>
-                                    <td class="text-dark text-hover-success" colspan="5"> Records Not Found</td>
+                                    <td class="text-dark text-hover-danger" colspan="5"> Records Not Found</td>
                                 </tr>
                                 @endif
                             </tbody>

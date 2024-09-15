@@ -109,17 +109,17 @@
                                 <!--begin::Table row-->
                                 <tr>
                                     <!--begin::Customer name=-->
-                                    <td class="text-dark text-hover-success">
+                                    <td class="text-dark text-hover-danger">
                                         {{ $categorie->id }}
                                     </td>
                                     <!--end::Customer name=-->
                                     <!--begin::Email=-->
-                                    <td class="text-dark text-hover-success">
+                                    <td class="text-dark text-hover-danger">
                                         {{ $categorie->name }}
                                     </td>
                                     <!--end::Email=-->
                                     <!--begin::Status=-->
-                                    <td class="text-dark text-hover-success">
+                                    <td class="text-dark text-hover-danger">
                                         {{ $categorie->slug }}
                                     </td>
                                     <!--begin::Status=-->
@@ -150,7 +150,7 @@
                                 @endforeach
                                 @else
                                 <tr>
-                                    <td class="text-dark text-hover-success" colspan="5"> Records Not Found</td>
+                                    <td class="text-dark text-hover-danger" colspan="5"> Records Not Found</td>
                                 </tr>
                                 @endif
                             </tbody>
