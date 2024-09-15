@@ -7,28 +7,33 @@ use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $totalOrders = Order::where("status", "!=", "canclled")->count();
-        $totalOrderspending = Order::where("status", "=", "pending")->count();
-        $totalRevenue = Order::where("status", "=", "pending")->sum('grand_total');
-        $totalRevenueMaroc = Order::where("status", "=", "pending")
-            ->where("city", "=", "Morocco")
-            ->sum('grand_total');
-        $totalRevenueAlgerie = Order::where("status", "=", "pending")
-            ->where("city", "=", "Algerie")
-            ->sum('grand_total');
-        $totalRevenueOthers = Order::where("status", "=", "pending")
+        $totalOrdersDelivered = Order::where("status", "=", "delivered")->count();
+        $totalRevenue = Order::where("status", "=", "delivered")->sum('grand_total');
+        $totalRevenueMaroc = DB::table('orders')
+            ->join('countries', 'orders.country_id', '=', 'countries.id')
+            ->where('orders.status', 'delivered')
+            ->where('countries.name', 'Morocco')
+            ->sum('orders.grand_total');
+        $totalRevenueAlgerie = DB::table('orders')
+            ->join('countries', 'orders.country_id', '=', 'countries.id')
+            ->where('orders.status', 'delivered')
+            ->where('countries.name', 'Algeria')
+            ->sum('orders.grand_total');
+        $totalRevenueOthers = Order::where("status", "=", "delivered")
             ->where("city", "!=", "Morocco")
             ->sum('grand_total');
         $totalProducts = Product::count();
         return view("admin.dashboard", [
             'totalOrders' => $totalOrders,
             'totalProducts' => $totalProducts,
-            'totalOrderspending' => $totalOrderspending,
+            'totalOrdersDelivered' => $totalOrdersDelivered,
             'totalRevenue' => $totalRevenue,
             'totalRevenueMaroc' => $totalRevenueMaroc,
             'totalRevenueAlgerie' => $totalRevenueAlgerie,

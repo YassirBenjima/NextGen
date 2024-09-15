@@ -70,12 +70,6 @@
                     <div class="pro-excerp">
                         <p>{{ html_entity_decode(strip_tags($product->short_description)) }}</p>
                     </div>
-                    <div class="product-color">
-                        <h5>Color</h5>
-                        <div class="color-1"></div>
-                        <div class="color-2"></div>
-                        <div class="color-3"></div>
-                    </div>
                     <div class="product-cart-qty">
                         <a href="javascript:void(0);" onclick="addToCart('{{ $product->id }}');" class="add-to-cart-btn">Add To Cart</a>
                     </div>

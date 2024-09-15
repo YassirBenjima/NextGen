@@ -251,7 +251,7 @@
             success: function(response) {
                 var errors = response.errors;
 
-                if (Response.status == false) {
+                if (response.status == false) {
                     if (errors.first_name) {
                         $('#first_name').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(errors.first_name);
                     } else {
@@ -309,7 +309,7 @@
                     $('#zip').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
                     $('#mobile').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
                     // Redirection vers la page de confirmation de commande avec l'identifiant de la commande
-                    window.location.href = "{{ url('/thanks/') }}/"+response.orderId;
+                    window.location.href = "{{ route('front.thanks', ['orderId' => ':orderId']) }}".replace(':orderId', response.orderId);
                 }
             },
             error: function(JQXHR, execption) {

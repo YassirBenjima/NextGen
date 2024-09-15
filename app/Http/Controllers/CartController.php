@@ -335,6 +335,8 @@ class CartController extends Controller
                 // Enregistre l'élément de commande dans la base de données.
                 $orderItem->save();
             }
+
+            orderEmail(orderId: $order->id);
             // Affiche un message de succès et vide le panier après l'enregistrement de la commande.
             session()->flash('success', 'You Have Successfully Placed Your Order.');
             Cart::destroy();
