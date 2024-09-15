@@ -238,6 +238,38 @@
             }
         });
 
+        $("#profileForm").submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: '{{route("account.updateProfile")}}',
+            type : 'post',
+            data : $(this).serializeArray(),
+            dataType : 'json',
+            success : function(response){
+            if(response.status == true){
+                window.location.href = '{{route("account.profile")}}';
+            }else{
+                alert(response.error);
+            }
+            }
+        });
+        });
+        $("#adrressForm").submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: '{{route("account.updateAddress")}}',
+            type : 'post',
+            data : $(this).serializeArray(),
+            dataType : 'json',
+            success : function(response){
+            if(response.status == true){
+                window.location.href = '{{route("account.profile")}}';
+            }else{
+                alert(response.error);
+            }
+            }
+        });
+        });
         function addToCart(id) {
             $.ajax({
                 url: ' {{route("front.addToCart")}}',
