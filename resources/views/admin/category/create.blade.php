@@ -108,10 +108,10 @@
                                     </div>
 
                                     <div class="mb-5">
-                                        <button type="submit" class="btn btn-success me-3" href="{{ route('admin.dashboard')}}">
+                                        <button type="submit" class="btn btn-success me-3">
                                             <span class="indicator-label">Create</span>
                                         </button>
-                                        <a href="{{ route('admin.dashboard')}}" class="btn btn-light">
+                                        <a href="{{ route('categories.index')}}" class="btn btn-light">
                                             <span class="indicator-label">Cancel</span>
                                         </a>
                                     </div>

@@ -156,7 +156,7 @@
                                         <button type="submit" class="btn btn-success me-3">
                                             <span class="indicator-label">Create</span>
                                         </button>
-                                        <a href="{{ route('admin.dashboard')}}" class="btn btn-light">
+                                        <a href="{{ route('coupons.index')}}" class="btn btn-light">
                                             <span class="indicator-label">Cancel</span>
                                         </a>
                                     </div>
