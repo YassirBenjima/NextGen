@@ -310,7 +310,6 @@
                                                         </div>
                                                         <!--end:Col-->
                                                     </div>
-
                                                 </div>
                                                 <!--end:Col-->
 

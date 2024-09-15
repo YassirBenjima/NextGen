@@ -29,8 +29,7 @@
                         <ul>
                           <li class="list-group-item clearfix"><a href="{{route('account.profile')}}" class="active"> My Account</a></li>
                           <li class="list-group-item clearfix"><a href="{{route('account.order')}}"> My Orders</a></li>
-                          <li class="list-group-item clearfix"><a href="javascript:;"> Wish list</a></li>
-                          <li class="list-group-item clearfix"><a href="javascript:;">Restore Password</a></li>
+                          <li class="list-group-item clearfix"><a href="{{route('account.restore')}}">Restore Password</a></li>
                           <li class="list-group-item clearfix"><a href="{{route('account.logout')}}">Logout</a></li>
                         </ul>
                     </aside>

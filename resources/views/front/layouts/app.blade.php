@@ -237,7 +237,28 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
+        $("#changePasswordForm").submit(function(event){
+            event.preventDefault();
+            $.ajax({
+                url: '{{route("account.processRestore")}}',
+                type: 'post',
+                data: $(this).serializeArray(),
+                dataType: 'json',
+                success: function(response){
+                    if(response.status == true){
+                        window.location.href = '{{route("account.profile")}}';
+                    } else {
+                        if(response.errors){
+                            // Afficher les erreurs de validation
+                            alert(JSON.stringify(response.errors));
+                        } else {
+                            // Afficher l'erreur spécifique (mot de passe incorrect)
+                            alert(response.error);
+                        }
+                    }
+                }
+            });
+        });
         $("#profileForm").submit(function(event){
         event.preventDefault();
         $.ajax({
@@ -297,6 +318,7 @@
                 dangerMessage.style.display = 'none';
             }
         }, 3000);
+        
     </script>
     @yield('customJs')
 </body>
