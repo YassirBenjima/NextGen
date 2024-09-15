@@ -146,9 +146,11 @@
                                     <!--begin::Status=-->
                                     <td>
                                         @if($order->status == "pending")
-                                            <div class="badge badge-light-danger">Pending</div>
+                                            <div class="badge badge-light-warning">Pending</div>
                                         @elseif ($order->status == "shipped")
                                             <div class="badge badge-light-info">Shipped</div>
+                                        @elseif  ($order->status == "cancelled")
+                                            <div class="badge badge-light-danger">Cancelled</div>
                                         @else
                                             <div class="badge badge-light-success">Delivered</div>
                                         @endif
