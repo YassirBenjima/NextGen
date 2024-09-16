@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\ShippingController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\OrderController;
+use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\TempImagesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
@@ -137,6 +138,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
         Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
         Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.delete');
+        // Setting Route
+        Route::get('/change-password', [SettingController::class, 'showChangePassword'])->name('setting.change-password');
+        Route::post('/process-change-password', [SettingController::class, 'processChangePassword'])->name('setting.processChangePassword');
 
         //temp-image.create
         Route::post('/upload-temp-image', [TempImagesController::class, 'create'])->name('temp-images.create');
